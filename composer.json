@@ -11,8 +11,8 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "swoole": ">=4.3.6",
-    "phalcon": ">=4.3.1",
+    "ext-swoole": ">=4.3.6",
+    "ext-phalcon": ">=4.3.1",
     "php": ">=7.1.0",
     "janfish/rpc": "^1.1",
     "janfish/phalcon-db-reconnection": "^1.0",
