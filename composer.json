@@ -1,0 +1,19 @@
+{
+  "name": "janfish/rpc-framework",
+  "type": "project",
+  "description": "Janfish RPC Framework",
+  "authors": [
+    {
+      "name": "Robert",
+      "email": "robert@janfish.cn"
+    }
+  ],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1.0",
+    "janfish/rpc": "^1.1",
+    "janfish/phalcon-db-reconnection": "^1.0",
+    "janfish/async-caller": "^1.1"
+  }
+}
