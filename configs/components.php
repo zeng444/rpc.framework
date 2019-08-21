@@ -10,6 +10,8 @@ use Phalcon\Cache\Backend\Redis as BackendCache;
 use Phalcon\Logger\Adapter\File as FileAdapter;
 use Phalcon\Mvc\Model\MetaData\Redis as MetaDataCache;
 
+$di = new  Phalcon\Di\FactoryDefault();
+
 /**
  * Sets the config
  */

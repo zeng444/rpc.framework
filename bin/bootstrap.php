@@ -9,32 +9,13 @@ define('LOG_PATH', ROOT_PATH.'logs'.DIRECTORY_SEPARATOR);
 try {
 
     /**
-     * Switch the configuration
-     */
-    $env = isset($_ENV['SITE_ENV']) ? strtolower($_ENV['SITE_ENV']) : 'prod';
-
-    if ($env === 'dev') {
-        $config = include ROOT_PATH."configs/dev.php";
-    } else {
-        $config = include ROOT_PATH."configs/config.php";
-    }
-
-    /**
      * Autoload Object
      */
     require_once ROOT_PATH.'vendor/autoload.php';
 
-    /**
-     * Autoload Object
-     */
-    include ROOT_PATH.'configs/loader.php';
 
-    $di = new  Phalcon\Di\FactoryDefault();
+    $env = isset($_ENV['SITE_ENV']) ? strtolower($_ENV['SITE_ENV']) : 'prod';
 
-    /**
-     * Include RPC services configuration
-     */
-    include ROOT_PATH.'configs/components.php';
 
     /**
      * Include RPC configuration
@@ -51,8 +32,20 @@ try {
     $type = $argv[2] ?? Server\Protocol\Tcp::PROTOCOL_NAME;
 
     if (in_array($command, ['start', 'restart'])) {
-        Server::$command($serverConfig, $servicesConfig, $type);
-    } elseif (in_array($command, ['reload', 'start'])) {
+
+        Server::$command($serverConfig, $servicesConfig, $type, function () use ($env) {
+            /**
+             * Autoload Object
+             */
+            include ROOT_PATH.'configs/loader.php';
+
+            /**
+             * Include RPC services configuration
+             */
+            include ROOT_PATH.'configs/components.php';
+        });
+
+    } elseif (in_array($command, ['reload', 'start', 'stop'])) {
         Server::$command($serverConfig, $type);
     }
 
