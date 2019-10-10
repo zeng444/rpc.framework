@@ -17,5 +17,8 @@ return [
         'backlog' => 1000,
         'max_request' => 2000,
         'dispatch_mode' => 1,
+        'open_eof_check' => true,
+        'package_eof' => "\r\n",
+        'open_eof_split' => true,
     ],
 ];
