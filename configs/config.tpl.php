@@ -33,4 +33,15 @@ return new \Phalcon\Config([
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4',
         ],
     ],
+    'middleware' => [
+        'host' => '@@QUEUE_SERVER@@',
+        'tube' => '@@QUEUE_TUBE@@',
+        'workerNum' => '@@QUEUE_WORK_NUMBER@@',
+        'reserveTimeout' => '@@QUEUE_WORK_RESERVE_TIMEOUT@@',
+        'maxRequest' => 50000,
+        'cron' => 100,
+        'daemonize' => true,
+        'pidFile' => __DIR__.'/.async_task.pid',
+        'logPath' => __DIR__.'/async.log',
+    ],
 ]);

@@ -15,8 +15,8 @@
     "ext-phalcon": ">=3.4.1",
     "php": ">=7.1.0",
     "predis/predis": "^1.1",
-    "janfish/rpc": "^1.1",
-    "janfish/phalcon-db-reconnection": "^1.0",
-    "janfish/async-caller": "^1.1"
+    "janfish/rpc": "dev-master",
+    "janfish/phalcon-db-reconnection": "dev-master",
+    "janfish/async-caller": "dev-master"
   }
 }

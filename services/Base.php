@@ -15,7 +15,7 @@ use Phalcon\DiInterface;
  *
  * @property  \Phalcon\Db\Adapter $db
  */
-abstract class Base implements InjectionAwareInterface,ServiceInterface
+abstract class Base implements InjectionAwareInterface, ServiceInterface
 {
 
     /**
@@ -34,13 +34,29 @@ abstract class Base implements InjectionAwareInterface,ServiceInterface
 
 
     /**
-     * db helper
+     * Author:Robert
+     *
+     * @var
      */
-    public function init()
+    protected $config;
+
+    /**
+     * Base constructor.
+     */
+    public function __construct()
     {
         $this->setDi(Di::getDefault());
         $this->db = $this->getDi()->get('db');
+        $this->config = $this->getDi()->get('config');
     }
+
+    /**
+     * db helper
+     */
+    //    public function init(\Swoole\Server $server)
+    //    {
+    //
+    //    }
 
 
     /**
