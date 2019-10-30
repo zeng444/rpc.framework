@@ -51,12 +51,14 @@ abstract class Base implements InjectionAwareInterface, ServiceInterface
     }
 
     /**
-     * db helper
+     * Author:Robert
+     *
+     * @param \Swoole\Server $server
      */
-    //    public function init(\Swoole\Server $server)
-    //    {
-    //
-    //    }
+//    public function init(\Swoole\Server $server)
+//    {
+//
+//    }
 
 
     /**

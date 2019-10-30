@@ -6,8 +6,8 @@ ini_set('memory_limit', '128M');
 
 return new \Phalcon\Config([
     'logger' => [
-        'file' => ROOT_PATH.'logs/debug.log',
-        'rpc' => ROOT_PATH.'logs/rpc.log',
+        'file' => LOG_PATH.'debug.log',
+        'rpc' => LOG_PATH.'rpc.log',
     ],
     'queue' => [
         "host" => "@@QUEUE_SERVER@@",
@@ -31,6 +31,7 @@ return new \Phalcon\Config([
         'charset' => 'utf8',
         'options' => [
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4',
+            PDO::ATTR_ORACLE_NULLS => PDO::NULL_TO_STRING,
         ],
     ],
     'middleware' => [
@@ -41,7 +42,7 @@ return new \Phalcon\Config([
         'maxRequest' => 50000,
         'cron' => 100,
         'daemonize' => true,
-        'pidFile' => __DIR__.'/.async_task.pid',
-        'logPath' => __DIR__.'/async.log',
+        'pidFile' => RUNTIME_PATH.'async_task.pid',
+        'logPath' => RUNTIME_PATH.'async.log',
     ],
 ]);

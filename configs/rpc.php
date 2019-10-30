@@ -7,7 +7,7 @@ return [
         'host' => '0.0.0.0',
         'port' => 9501,
         'servicePrefix' => 'Services\\',
-        //        'pid_file' => ROOT_PATH.'bin/.server',
+        'pid_file' => RUNTIME_PATH.'.server',
         'log_file' => LOG_PATH,
     ],
     'options' => [
@@ -17,8 +17,6 @@ return [
         'backlog' => 1000,
         'max_request' => 2000,
         'dispatch_mode' => 1,
-        'open_eof_check' => true,
-        'package_eof' => "\r\n",
-        'open_eof_split' => true,
+        'log_file' => LOG_PATH.'logs.log',
     ],
 ];
